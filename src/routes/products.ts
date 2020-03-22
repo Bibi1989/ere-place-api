@@ -23,7 +23,7 @@ router.get("/product/:productId", async (req: Request, res: Response) => {
   return res.json({ product });
 });
 
-router.post("/products", Auth, async (req: any, res: Response) => {
+router.post("/products", async (req: any, res: Response) => {
   const [user] = req.user["user"];
   const product = await createProduct(req, res, user);
   return res.json({ product });
