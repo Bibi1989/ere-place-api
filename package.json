@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "watch-ts": "tsc -w",
-    "watch-node": "node bin/www",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\"",
+    "start": "node bin/www",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run start\"",
     "migrate": "node-pg-migrate",
     "build": "tsc"
   },
