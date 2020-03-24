@@ -61,3 +61,11 @@ export const createProduct = async (
     return error.message;
   }
 };
+
+export const deleteProduct = async (deleteId: string) => {
+  try {
+    await db.query(sql`DELETE FROM products WHERE id=${deleteId}`)
+  } catch (error) {
+    return error.message
+  }
+}

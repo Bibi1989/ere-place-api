@@ -3,7 +3,8 @@ const router = Router();
 import {
   getAllProducts,
   getSingleProduct,
-  createProduct
+  createProduct,
+  deleteProduct
 } from "../controllers/products/product_controller";
 import { Auth } from "../controllers/users/authentication";
 import {
@@ -23,10 +24,16 @@ router.get("/product/:productId", async (req: Request, res: Response) => {
   return res.json({ product });
 });
 
-router.post("/products", async (req: any, res: Response) => {
+router.post("/products", Auth, async (req: any, res: Response) => {
   const [user] = req.user["user"];
   const product = await createProduct(req, res, user);
   return res.json({ product });
+});
+
+router.delete("/products/:deleteId", Auth, async (req: any, res: Response) => {
+  const { deleteId } = req.params;
+  await deleteProduct(deleteId);
+  res.json({delete_msg: "Product deleted"})
 });
 
 router.get("/orders", async (req: Request, res: Response) => {
@@ -44,8 +51,8 @@ router.post("/orders", async (req: any, res: Response) => {
 
 router.delete("/orders/:deleteId", async (req, res) => {
   const { deleteId } = req.params;
-  const delete_order = await deleteOrders(deleteId);
-  if (deleteId) return res.json({ delete_msg: "Deleted successfully!!!" });
+  await deleteOrders(deleteId);
+  if (deleteId) return res.json({ delete_msg: "Order Deleted successfully!!!" });
 });
 
 export default router;
