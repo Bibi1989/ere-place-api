@@ -54,7 +54,7 @@ export const createProduct = async (
 
   try {
     const [product]: Products[] = await db.query(
-      sql`INSERT INTO products(title, category, category_type, description, price, location, image_url, stock, seller_id, age_to, age_from, size) VALUES(${title}, ${category}, ${category_type}, ${description}, ${price}, ${location}, ${image_url}, ${stock}, ${id}, ${age_to}, ${age_from}, ${size}) returning *`
+      sql`INSERT INTO products(title, category, category_type, description, price, location, image_url, stock, seller_id, age_to, age_from, size) VALUES(${title}, ${category}, ${category_type}, ${description}, ${price}, ${location}, ${image_url}, ${stock}, ${id}, ${age_to}, ${age_from}, ${size})`
     );
     return product;
   } catch (error) {
