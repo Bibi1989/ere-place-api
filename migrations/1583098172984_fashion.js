@@ -23,13 +23,13 @@ exports.up = pgm => {
       type: "VARCHAR(2000)"
     },
     description: {
-      type: "TEXT",
+      type: "TEXT"
     },
     age_from: {
-      type: "TEXT",
+      type: "TEXT"
     },
     age_to: {
-      type: "TEXT",
+      type: "TEXT"
     },
     size: {
       type: "TEXT",
@@ -44,7 +44,7 @@ exports.up = pgm => {
       nonNull: true
     },
     image_url: {
-      type: "VARCHAR(255)",
+      type: "TEXT",
       nonNull: true
     },
     stock: {
