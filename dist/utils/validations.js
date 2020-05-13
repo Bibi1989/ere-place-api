@@ -7,18 +7,18 @@ exports.registerValidation = (first_name, last_name, phone, is_seller, email, pa
         is_seller: "",
         phone: "",
         email: "",
-        password: ""
+        password: "",
     };
-    if (first_name.trim() === "") {
+    if (first_name === "") {
         error.first_name = "First name field is empty";
     }
-    if (last_name.trim() === "") {
+    if (last_name === "") {
         error.last_name = "Last name field is empty";
     }
-    if (is_seller.trim() === "") {
+    if (is_seller === "") {
         error.is_seller = "seller/buyer field is empty";
     }
-    if (phone.trim() === "") {
+    if (phone === "") {
         error.phone = "Phone number field is empty";
     }
     else {
@@ -26,7 +26,7 @@ exports.registerValidation = (first_name, last_name, phone, is_seller, email, pa
             error.phone = "Phone number is less than 9 characters";
         }
     }
-    if (email.trim() === "") {
+    if (email === "") {
         error.email = "Email field is empty";
     }
     else {
@@ -35,7 +35,7 @@ exports.registerValidation = (first_name, last_name, phone, is_seller, email, pa
             error.email = "Email is not valid";
         }
     }
-    if (password.trim() === "") {
+    if (password === "") {
         error.password = "Password field is empty";
     }
     return error;
@@ -43,7 +43,7 @@ exports.registerValidation = (first_name, last_name, phone, is_seller, email, pa
 exports.loginValidation = (email, password) => {
     const error = {
         email: "",
-        password: ""
+        password: "",
     };
     if (email.trim() === "") {
         error.email = "Email field is empty";
@@ -77,7 +77,7 @@ exports.productsValidation = (title, category, category_type, description, price
         category_type: "",
         description: "",
         price: "",
-        location: ""
+        location: "",
     };
     if (title === "")
         error.title = "Title field is empty";

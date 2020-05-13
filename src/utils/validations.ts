@@ -14,25 +14,25 @@ export const registerValidation = (
     is_seller: "",
     phone: "",
     email: "",
-    password: ""
+    password: "",
   };
-  if (first_name.trim() === "") {
+  if (first_name === "") {
     error.first_name = "First name field is empty";
   }
-  if (last_name.trim() === "") {
+  if (last_name === "") {
     error.last_name = "Last name field is empty";
   }
-  if (is_seller.trim() === "") {
+  if (is_seller === "") {
     error.is_seller = "seller/buyer field is empty";
   }
-  if (phone.trim() === "") {
+  if (phone === "") {
     error.phone = "Phone number field is empty";
   } else {
     if (phone.length < 9) {
       error.phone = "Phone number is less than 9 characters";
     }
   }
-  if (email.trim() === "") {
+  if (email === "") {
     error.email = "Email field is empty";
   } else {
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,7 +40,7 @@ export const registerValidation = (
       error.email = "Email is not valid";
     }
   }
-  if (password.trim() === "") {
+  if (password === "") {
     error.password = "Password field is empty";
   }
   return error;
@@ -49,7 +49,7 @@ export const registerValidation = (
 export const loginValidation = (email: string, password: string) => {
   const error: LoginInterface = {
     email: "",
-    password: ""
+    password: "",
   };
   if (email.trim() === "") {
     error.email = "Email field is empty";
@@ -91,7 +91,7 @@ export const productsValidation = (
     category_type: "",
     description: "",
     price: "",
-    location: ""
+    location: "",
   };
   if (title === "") error.title = "Title field is empty";
   if (category === "") error.category = "category field is empty";
@@ -101,6 +101,5 @@ export const productsValidation = (
   if (description === "") error.description = "description field is empty";
   if (location === "") error.location = "location field is empty";
 
-  return error
+  return error;
 };
-

@@ -20,7 +20,7 @@ export const register = async (req: any, res: any) => {
     is_seller,
     email,
     password,
-    image_url
+    image_url,
   }: RegisterInterface = req.body;
 
   const error = registerValidation(

@@ -14,8 +14,6 @@ export const login = async (req: any, res: any) => {
 
   let [user] = await db.query(sql`SELECT * FROM users`);
 
-  console.log(user);
-
   if (!user) return res.status(404).json({ error: "User have not register" });
 
   try {

@@ -22,7 +22,7 @@ const validations_1 = require("../../utils/validations");
 //   api_secret: process.env.API_SECRET
 // });
 exports.register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { first_name, last_name, phone, is_seller, email, password, image_url } = req.body;
+    const { first_name, last_name, phone, is_seller, email, password, image_url, } = req.body;
     const error = validations_1.registerValidation(first_name, last_name, phone, is_seller, email, password);
     if (error.first_name)
         return res.status(404).json({ error: error.first_name });

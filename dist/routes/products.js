@@ -28,6 +28,11 @@ router.post("/products", authentication_1.Auth, (req, res) => __awaiter(void 0, 
     const product = yield product_controller_1.createProduct(req, res, user);
     return res.json({ product });
 }));
+router.delete("/products/:deleteId", authentication_1.Auth, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { deleteId } = req.params;
+    yield product_controller_1.deleteProduct(deleteId);
+    res.json({ delete_msg: "Product deleted" });
+}));
 router.get("/orders", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const orders = yield order_controller_1.getOrders();
     res.json({ orders });
@@ -41,9 +46,9 @@ router.post("/orders", (req, res) => __awaiter(void 0, void 0, void 0, function*
 }));
 router.delete("/orders/:deleteId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { deleteId } = req.params;
-    const delete_order = yield order_controller_1.deleteOrders(deleteId);
+    yield order_controller_1.deleteOrders(deleteId);
     if (deleteId)
-        return res.json({ delete_msg: "Deleted successfully!!!" });
+        return res.json({ delete_msg: "Order Deleted successfully!!!" });
 }));
 exports.default = router;
 //# sourceMappingURL=products.js.map
