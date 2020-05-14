@@ -12,7 +12,7 @@ export const login = async (req: any, res: any) => {
   if (error.email) return res.status(404).json({ error: error.email });
   if (error.password) return res.status(404).json({ error: error.password });
 
-  let [user] = await db.query(sql`SELECT * FROM users`);
+  let [user] = await db.query(sql`SELECT * FROM users WHERE email=${email}`);
 
   if (!user) return res.status(404).json({ error: "User have not register" });
 

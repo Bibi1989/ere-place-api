@@ -23,7 +23,7 @@ exports.login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(404).json({ error: error.email });
     if (error.password)
         return res.status(404).json({ error: error.password });
-    let [user] = yield pg_connect_1.db.query(pg_connect_1.sql `SELECT * FROM users`);
+    let [user] = yield pg_connect_1.db.query(pg_connect_1.sql `SELECT * FROM users WHERE email=${email}`);
     if (!user)
         return res.status(404).json({ error: "User have not register" });
     try {
